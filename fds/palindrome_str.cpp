@@ -1,4 +1,6 @@
 #include <iostream>
+#include <bits/stdc++.h>
+
 using namespace std;
 struct Stack
 {
@@ -19,12 +21,14 @@ void create(string str)
     }
 }
 
-string reverse()
+string reverse_str()
 {
     string str;
+
+    cout << s.top;
     if (s.top == -1)
     {
-        cout << "No data found" << endl;
+        cout << "No data found";
     }
     else
     {
@@ -40,14 +44,17 @@ void isPalindrome(string str)
 {
     create(str);
 
-    string reverseStr = reverse();
+    string reverseStr = reverse_str();
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    transform(reverseStr.begin(), reverseStr.end(), reverseStr.begin(), ::tolower);
+
     if (reverseStr == str)
     {
-        cout << "String is palindrome" << endl;
+        cout << "String is palindrome";
     }
     else
     {
-        cout << "String is not palindrome" << endl;
+        cout << "String is not palindrome";
     }
 }
 int main()
@@ -65,7 +72,7 @@ int main()
         {
             create(str);
 
-            cout << "Reverse string:" << reverse() << endl;
+            cout << "Reverse string:" << reverse_str();
         }
         else if (ch == 2)
         {
