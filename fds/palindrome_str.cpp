@@ -1,44 +1,87 @@
 #include <iostream>
-#include <string>
-using namespace std;
-struct Stack{
-    int data[50];
-    int top=-1;
-};
+#include <bits/stdc++.h>
 
+using namespace std;
+struct Stack
+{
+    char data[50];
+    int top;
+};
 struct Stack s;
-void check(){
-    string str;
-    cout<<"Enter String:";
-    cin>>str;
-    
-  for(int i=0;i<str.length();i++){
-      if(str[i]=='(' && str[i]=='{' && str[i]=='['){
-          if(s.top==50){
-              cout<<"Stack is overflow"<<endl;
-          }
-          else{
-              s.top++;
-              s.data[s.top]=str[i];
-          }
-          
-      }
-      cout<<s.top;
-      else if((str[i]==')' && s.data[s.top]=='(') || (str[i]=='}' && s.data[s.top]=='{') || (str[i]==']' && s.data[s.top]=='[')){
-          if(s.top==-1){
-              cout<<"stack is overflow"<<endl;
-          }
-          else{
-              s.top--;
-          }
-      }
-      
-  
-  }  
-  cout<<s.top;
+
+void create(string str)
+{
+    for (int i = 0; i < str.length(); i++)
+    {
+        if (s.top != 50)
+        {
+            s.top++;
+            s.data[s.top] = str[i];
+        }
+    }
 }
-int main(){
-    
-    check();
-    return 0;
+
+string reverse_str()
+{
+    string str;
+
+    cout << s.top;
+    if (s.top == -1)
+    {
+        cout << "No data found";
+    }
+    else
+    {
+        for (int i = s.top; i >= 0; i--)
+        {
+            str += s.data[i];
+        }
+    }
+    return str;
+}
+
+void isPalindrome(string str)
+{
+    create(str);
+
+    string reverseStr = reverse_str();
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    transform(reverseStr.begin(), reverseStr.end(), reverseStr.begin(), ::tolower);
+
+    if (reverseStr == str)
+    {
+        cout << "String is palindrome";
+    }
+    else
+    {
+        cout << "String is not palindrome";
+    }
+}
+int main()
+{
+    string str;
+    cout << "Enter a string";
+    cin >> str;
+    s.top = -1;
+    int ch;
+    do
+    {
+        cout << "\n\nMenu \n1.Show Reverse String \n 2.Check is palindrome or not 3.any other key to exit" << endl;
+        cin >> ch;
+        if (ch == 1)
+        {
+            create(str);
+
+            cout << "Reverse string:" << reverse_str();
+        }
+        else if (ch == 2)
+        {
+            isPalindrome(str);
+        }
+        else
+        {
+            break;
+        }
+
+    } while (true);
 }
