@@ -22,7 +22,7 @@ y2=y1+dy;
 x3 = (int)(0.5*(x1+x5)+sqrt(3)*(y1-y5)/6);
 y3 =(int)(0.5*(y1+y5)+sqrt(3)*(x5-x1)/6);
 x4 =2*dx+x1;
-x5 = 2*dy+y1;
+y4 = 2*dy+y1;
 
 koch(it-1,x1,y1,x2,y2);
 koch(it-1,x2,y2,x3,y3);
@@ -38,7 +38,6 @@ koch(it-1,x4,y4,x5,y5);
 int main(){
 int gdriver = DETECT,gmode ,errorcode;
 initgraph(&gdriver,&gmode,"C:\\turboc3\\bgi");
-
 Kochcurve k;
 k.koch(2,150,20,20,280);
 k.koch(2,280,280,150,20);

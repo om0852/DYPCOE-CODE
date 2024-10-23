@@ -70,7 +70,7 @@ def fibonacciSearch(students_attend, search_element, n):
         fibMMm2=fibMMm1
         fibMMm1=fibM
         fibM=fibMMm2+fibMMm1
-    offset=-1;
+    offset=-1
     while (fibM>1):
         i=min(offset+fibMMm2, n-1)
         if (students_attend[i]<search_element):
@@ -85,7 +85,7 @@ def fibonacciSearch(students_attend, search_element, n):
         else:
             return i
     if(fibMMm1 and students_attend[offset+1]==search_element):
-        return offset+1;
+        return offset+1
     else:
         return -1
 
