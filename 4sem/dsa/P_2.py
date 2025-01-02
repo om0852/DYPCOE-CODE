@@ -6,11 +6,11 @@ def menu():
     print("\n1.insertion\n 2.deletion\n3.contain\n4.display\n5.union\n6.difference\n7.symmetric difference\n8.intersection\n9.print subset")
     ch=int(input("Enter your choice"))
     if ch==1:
-        s.add(int(input("Enter Number")))    
+        s.add((input("Enter Number")))    
     elif ch==2:
-        s.discard(int(input("Enter Number")))
+        s.discard((input("Enter Number")))
     elif ch==3:
-       n=int(input("Enter Search element"))
+       n=(input("Enter Search element"))
        if n in s:
            print("Element found")
        else:
@@ -25,6 +25,34 @@ def menu():
         print("Symmetric Difference:",s^s1)
     elif ch==8:
         print("Intersection :",s&s1)
+    elif ch==9:
+        flag=0
+        for i in s:
+            if i not in  s1:
+                print("not subset ")
+                flag=1
+                break
+        if flag==0 or s is None:
+            print("is subset")
     else:
         break
 menu();
+
+
+
+# set{a,b,c,d}
+{}
+{a}
+{b}
+{c}
+{d}
+{a,b}
+{a,c}
+{a,d}
+{b,c}
+{b,d}
+{c,d}
+{a,b,c}
+{a,b,d}
+{b,c,d}
+{a,b,c,d}
