@@ -19,7 +19,7 @@ public:
         cin >> Div;
         cout << "Enter address";
         cin >> address;
-        f << rollno << name << Div << address;
+        f << rollno<<" "<< name<<" " << Div<<" " << address<<endl;
         f.close();
     }
     void Remove()
@@ -32,7 +32,7 @@ public:
         int roll;
         cout << "Enter rollno:";
         cin >> roll;
-        while (f.eof())
+        while (!f.eof())
         {
             f >> rollno >> name >> Div >> address;
             if (rollno != roll)
@@ -55,8 +55,8 @@ public:
             f >> rollno >> name >> Div >> address;
             cout << "Roll no:" << rollno<<endl;
             cout << "Name:" << name<<endl;
-            cout << "Div" << Div<<endl;
-            cout << "Address" << address<<endl;
+            cout << "Div:" << Div<<endl;
+            cout << "Address:" << address<<endl;
         }
         f.close();
     }
