@@ -50,31 +50,31 @@ public:
         fstream f;
 
         f.open("test.txt", ios::in);
-        while (f.eof())
+        while (!f.eof())
         {
             f >> rollno >> name >> Div >> address;
-            cout << "Roll no:" << rollno;
-            cout << "Name:" << name;
-            cout << "Div" << Div;
-            cout << "Address" << address;
+            cout << "Roll no:" << rollno<<endl;
+            cout << "Name:" << name<<endl;
+            cout << "Div" << Div<<endl;
+            cout << "Address" << address<<endl;
         }
         f.close();
     }
-    void displayBinary()
+     void displayBinary()
     {
         ifstream f("test.txt", ios::binary);
         char buffer[1024];
         while (f.read(buffer, 1024))
         {
-            cout.write(buffer, f.gcount());
+            cout<<buffer;
         }
         f.close();
     }
-    
 };
 
+
 int main()
-{   
+{
 
     Student s;
     int ch;
@@ -97,6 +97,7 @@ int main()
         }
         else if (ch == 4)
         {
+            s.displayBinary();
         }
         else
         {
