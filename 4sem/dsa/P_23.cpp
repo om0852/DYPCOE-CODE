@@ -7,12 +7,24 @@ class Student
     string name, Div, address;
 
 public:
-    void add()
+    int add()
     {
         fstream f;
-        f.open("test.txt", ios::app);
+        f.open("test.txt", ios::in);
         cout << "Enter roll no:";
         cin >> rollno;
+        int roll;
+ while (!f.eof())
+        {
+            f >> roll >> name >> Div >> address;
+            if (rollno == roll)
+            {
+                cout<<"Roll already exist";
+                return -1;
+            }
+        }     
+        f.close();
+                f.open("test.txt", ios::app);
         cout << "Enter name:";
         cin >> name;
         cout << "Enter div:";
@@ -21,6 +33,7 @@ public:
         cin >> address;
         f << rollno<<" "<< name<<" " << Div<<" " << address<<endl;
         f.close();
+        return 0;
     }
     void Remove()
     {
