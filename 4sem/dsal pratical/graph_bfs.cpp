@@ -17,7 +17,7 @@ void addEdge(int v,int e){
 
 void dfs(int start,int n){
 visited[start]=true;
-cout<<start<<" ";
+cout<<char('A'+start)<<" ";
 for(int i=0;i<n;i++){
     if(matrix[start][i]==1 && visited[i]!=1){
         dfs(i,n);
@@ -36,7 +36,7 @@ void bfs(int start,int n){
     while(!q.empty()){
         int v = q.front();
         q.pop();
-        cout<<v<<" ";
+        cout<<char('A'+v)<<" ";
         for(int i=0;i<n;i++){
             if(matrix[v][i]==1 && visited[i]!=1){
                 visited[i]=true;
