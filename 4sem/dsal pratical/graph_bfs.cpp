@@ -49,12 +49,12 @@ void bfs(int start,int n){
 int main(){
     
     
- addEdge(0, 1);
+    addEdge(0, 1);
     addEdge(0, 2);
     addEdge(1, 3);
     addEdge(2, 4);
-        dfs(0, 6);
-        cout<<"\n";
-        bfs(0,5);
+    dfs(0, 6);
+    cout<<"\n";
+    bfs(0,5);
     return 0;
 }
